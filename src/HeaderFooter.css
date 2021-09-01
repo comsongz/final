@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.headerContainer{
+    /* position: absolute; */
+    width: 100%;
+    height: 100px;
+    background: none;
+    font-family: 'GmarketSansLight';
+}
+.headerContainer>hr{
+    width: 100%;
+    z-index: 100;
+}
+.logo{
+    position: absolute;
+    left: 2%;
+    font-size: 2em;
+    top: 30px;
+    z-index: 100;
+}
+.menu{
+    position: absolute;
+    top: 40px;
+    left: 60%;
+    width: 40%;
+    /* height: 30%; */
+}
+.introduction{
+    position: absolute;
+    left: 5%;
+}
+.curriculum{
+    position: absolute;
+    left: 32%;
+}
+.roadmap{
+    position: absolute;
+    left: 57%;
+}
+.club{
+    position: absolute;
+    left: 80%;
+}
+hr{
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    border: 1px solid black;
+}
+header .logo_tab {
+    z-index: 1;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #0578FE;
+    display: flex;
+}
+.header .logo_tab .logoIMG {
+    margin-left: 20px;
+    margin-top: 15px;
+    width: 30px;
+    height: 30px;
+    display: block;
+    text-indent: -9999px;
+}
+.header .logo_tab .wordIMG {
+    margin-left: 15px;
+    margin-top: 20px;
+    height: 24px;
+}
+.header .link_tab {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid #0578FE;
+    font-weight: 600;
+    text-shadow: 0px 2px 2px rgba(41, 38, 31, 0.2);
+}
+.header .link_tab .sm_main {
+    text-decoration: none;
+    float:right;
+    padding: 10px;
+    font-size: 12px;
+    color: #0578FE;
+}
+.header .link_tab .sm_main-m {
+    text-decoration: none;
+    float:right;
+    padding: 10px;
+    font-size: 12px;
+    color: #0578FE;
+}
+
+.footer {
+    position: relative;
+    max-width: 980px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    bottom: 0;
+    border-top: 1px solid #0579fe4d;
+    margin: 50px 100px;
+    height: 100px;
+    padding: 50px;
+}
+.footer_center li {
+    width: 25%;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 6px;
+    color:#0578FE;
+    font-weight: bold;
+    padding: 10px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 70px;
+}
