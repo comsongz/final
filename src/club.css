@@ -15,7 +15,7 @@ body {
   padding: 0;
   font-family: 'GmarketSansLight';
   background: #fff;
-  background: radial-gradient(ellipse at center, rgba(70,70,70,0) 0%, rgba(70,70,70,0.05) 40%, rgba(70, 70, 70, 0.15) 70%);
+  background: radial-gradient(ellipse at center, rgba(70,70,70,0) 0%, rgba(70,70,70,0.05) 40%, rgba(70, 70, 70, 0.15) 50%);
   overflow: hidden;
   transform-style: preserve-3d;
 }
@@ -44,11 +44,12 @@ input[type='radio']:checked + section {
   transform-style: preserve-3d;
 }
 
-.container section.siss { background: rgb(243,187,227);}
-.container section.algos { background: rgb(0,23,204);}
-.container section.forza { background: rgb(98,213,251);}
-.container section.apps { background: rgb(240,148,54);}
-.container section.solux { background: rgb(248,211,72);}
+.container section.intro { background-color:rgb(184, 235, 133) ;}
+.container section.siss { background: rgb(247, 212, 72);}
+.container section.algos { background:rgb(255, 160, 43);}
+.container section.forza { background: rgb(98, 190, 247);}
+.container section.apps { background: rgb(31, 53, 225);}
+.container section.solux { background: rgb(244, 187, 227);}
 
 /* 학과 제목 쓰는거 아마 여기 h1말고 다른거 추가해서 내용 추가하면 될듯*/
 .container section h1 {
@@ -64,11 +65,11 @@ input[type='radio']:checked + section {
 }
 .container section .content{
   margin: 0;
+  color: black;
   font-size: 1.4em;
   line-height: 1.4em;
   transform: translate(0,30vh);
   text-align: center;
-  color: rgba(255,255,255,0.85);
   transition: transform 500ms;
   transform-style: preserve-3d;
 }
@@ -76,7 +77,7 @@ input[type='radio']:checked + section {
   font-family: 'GmarketSansMedium';
   text-shadow: 1px 2px 2px rgba(186, 186, 186, 0.687); 
 }
-/* 라벨은 뭘 위한건지..잘 모르겠음 */
+
 .container section label {
   display: block;
   position: absolute;
@@ -84,12 +85,16 @@ input[type='radio']:checked + section {
   width: 100%;
   height: 100vh;
 }
+
+.container section.intro { z-index: 100; }
 .container section.siss { z-index: 99; }
 .container section.algos { z-index: 98; }
 .container section.forza { z-index: 97; }
 .container section.apps { z-index: 96; }
 .container section.solux { z-index: 95; }
 
+#menu:checked + .container section.intro { top: 312px; }
+#menu:checked + .container section.intro:hover { top: 308px; }
 #menu:checked + .container section.siss { top: 252px; }
 #menu:checked + .container section.siss:hover { top: 248px; }
 #menu:checked + .container section.algos { top: 192px; }
@@ -101,52 +106,46 @@ input[type='radio']:checked + section {
 #menu:checked + .container section.solux { top: 12px; }
 #menu:checked + .container section.solux:hover { top: 8px; }
 
-/*메뉴를 위한것 여기 수정해야함!!*/
-.menu {
+/*메뉴 바 세개는 menu, menu::before, menu::after 로 이뤄짐 */
+.menu { 
   display: block;
   position: fixed;
-  top: 20px;
-  left: 25px;
   z-index: 1000;
-  transform: 0deg;
-  transition: all 200ms;
   width: 35px;
   height: 4px;
-  background: rgba(0,0,0,0.25);
+  top: 30px;
+  left: 20px;
+  transform: rotate(225deg);
+  transition: all 200ms;
+  transform-origin: center center;
+  background: #646464;
 }
-.menu::before,
 .menu::after {
   content: '';
   display: block;
   position: absolute;
   width: 35px;
   height: 4px;
-  background: rgba(0,0,0,0.25);
+  background: #646464;
   transition: all 200ms;
 }
-.menu::before {
-  top: 10px;
-}
 .menu::after {
-  top: 20px;
+  transform: rotate(90deg);
 }
-.menu:hover {background: rgb(77, 77, 77);
-}
-.menu:hover::before,
-.menu:hover::after {
-  background:rgb(77, 77, 77);
-}
+
+.menu:hover, 
+.menu:hover::after { background:rgb(150, 150, 150);}
+
 .menu div,
 .menu div label:nth-child(1) {
   display: block;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   top: -6px;
 }
-.menu div label:nth-child(2) {
-  display: none;
-}
+
+/*동아리중 하나 선택되었을때 페이지 보이는 효과 +연산자는 자식 말고 옆의 연산자 의미*/
 #menu:checked + .container {
   transform: scale(0.65) translateY(-18%);
   transition: all 500ms;
@@ -156,45 +155,14 @@ input[type='radio']:checked + section {
   cursor: pointer;
   overflow: hidden;
   opacity: 1;
-  box-shadow: 0 0 40px rgba(0,0,0,0.25);
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
   transform-style: preserve-3d;
 }
 #menu:checked + .container section h1 {
   transform: scale(0.5);
   transform-style: preserve-3d;
 }
-/* x자 왼쪽 */
-#menu:checked + .container + .menu { 
-  top: 30px;
-  left: 20px;
-  transform: rotate(225deg);
-  transition: all 200ms;
-  transform-origin: center center;
-  background: #646464;
-}
-/* x자 오른쪽 */
-#menu:checked + .container + .menu::before,
-#menu:checked + .container + .menu::after {
-  background: #646464;
-  transition: all 200ms;
-}
 
-#menu:checked + .container + .menu::before {
-  opacity: 0;
-  transition: opacity 0s;
-} 
-#menu:checked + .container + .menu::after {
-  margin-top: -20px;
-  transform: rotate(90deg);
-}
-#menu:checked + .container + .menu div label:nth-child(2) {
-  display: block;
-  width: 35px;
-  height: 35px;
-  position: absolute;
-  top: -6px;
-}
-#menu:checked + .container + .menu div label:nth-child(1) {
-  display: none;
-}
-
+#menu:checked + .container + .menu { display: none;}
+#menu:checked + .container + .menu::after { display: none;}
+#menu:checked + .container section .content{ display: none;}
